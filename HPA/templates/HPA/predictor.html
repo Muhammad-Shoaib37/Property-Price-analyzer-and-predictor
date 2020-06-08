@@ -1,0 +1,249 @@
+
+
+{% extends 'HPA/base.html' %}
+
+
+{% block content %}
+
+
+	<h3 style="text-align: center;">Select Features and Predict Property Price: </h3>
+
+
+<br>
+<div class="row">
+
+<div class="col-md-2"></div>
+
+<div style="font-size: 16px; margin: 5px;" class="col-md-1">City</div>
+
+<div style="font-size: 16px; margin: 5px;" class="col-md-1">Type</div>
+
+<div style="font-size: 16px; margin: 5px;" class="col-md-1">location</div>
+
+<div style="font-size: 16px; margin: 5px;" class="col-md-1">Category</div>
+
+<div style="font-size: 16px; margin: 5px;" class="col-md-1">Size</div>
+
+<div style="font-size: 16px; margin: 5px;" class="col-md-1">Bedrooms</div>
+
+<div style="font-size: 16px; margin: 5px;" class="col-md-1">Baths</div>
+
+
+<br>
+
+
+
+
+</div>
+<br>
+
+<div class="row">
+
+<div class="col-md-2"></div>
+			
+	<div class="col-md-1">
+					<form method="post" action="" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+			{% csrf_token %}
+		<div class="search_item">
+								
+								<select name="city" style="font-size: 16px; width: 150px;" name="city" id="city" class="dropdown_item_select search_input">
+									
+    <option value="1">Islamabad</option>
+    <option value="2">Rawalpindi</option>
+    <option value="3">Lahore</option>
+    <option value="4">Faisalabad</option>
+    <option value="5">Karachi</option>
+
+</select>
+
+</div>
+
+
+
+	</div>
+
+	<div class="col-md-1">
+
+
+		<div class="search_item">
+								
+								<select name="type" style="font-size: 16px; width: 150px;" name="property" id="adults_1" class="dropdown_item_select search_input">
+									
+    <option value="1">Flats</option>
+    <option value="2">Houses</option>
+    <option value="3">Rooms</option>
+    <option value="4">Lower Portions</option>
+    <option value="5">Upper Portions</option>
+    <option value="6">Farm House</option>
+    <option value="7">Penthouse</option>
+
+</select>
+
+</div>
+
+	</div>
+
+
+	<div class="col-md-1">
+
+
+		<div class="search_item">
+								
+								<select name="location" style="font-size: 16px; width: 150px;" name="location" id="loc" class="dropdown_item_select search_input">
+
+<!-- .................................... -->
+
+<!-- 
+
+           ISL Locations
+
+ -->
+
+
+
+
+
+
+<!-- ............................... -->
+							
+{% for i in rp %}
+							
+    <option value="{{i}}">{{i}}</option>
+
+{% endfor %}						
+    
+						
+</select>
+
+</div>
+
+	</div>
+
+
+	<div class="col-md-1">
+
+
+		<div class="search_item">
+								
+								<select name="category" style="font-size: 16px; width: 150px;" name="cat" id="adults_1" class="dropdown_item_select search_input">
+									
+									
+{% for i in category %}
+							
+    <option value="{{i}}">{{i}}</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+	</div>
+
+
+	<div class="col-md-1">
+
+
+		<div class="search_item">
+								
+								<select name="size" style="font-size: 16px; width: 150px;" name="city" id="siz" class="dropdown_item_select search_input">
+									
+    <option value="1">Kanal</option>
+    <option value="2">Marla</option>
+
+</select>
+
+</div>
+
+	</div>
+
+
+	<div class="col-md-1">
+
+
+		<div class="search_item">
+								
+								<select name="bedrooms" style="font-size: 16px; width: 150px;" name="city" id="bedroom" class="dropdown_item_select search_input">
+									
+{% for i in br %}
+							
+    <option value="{{i}}">{{i}}</option>
+
+{% endfor %}
+</select>
+
+</div>
+
+	</div>
+
+
+	<div class="col-md-1">
+
+
+		<div class="search_item">
+								
+								<select name="baths" style="font-size: 16px; width: 150px;" name="city" id="bath" class="dropdown_item_select search_input">
+{% for i in bt %}
+							
+    <option value="{{i}}">{{i}}</option>
+
+{% endfor %}
+
+</select>
+
+</div>
+
+	</div>
+<br>
+
+
+
+</div>
+
+<!-- row end -->
+
+<div class="row">
+
+	<div class="col-md-3"></div>
+
+<div class="col-md-6"><input style="margin-left: 170px;  width: 500px;" type="submit" name="cs" value="Find" class="button search_button"><span></span><span></span><span></span></div>
+	</form>
+
+	<div class="col-md-3">
+		
+		<p id="check"></p>
+	</div>
+</div>
+
+
+<script> var il = {{ il| safe }}; </script>
+<script>
+	
+flag = 0;
+
+function get_list() {
+	
+len = il.length;
+for (i = 0; i < len; i++) {
+
+  var x = document.getElementById("loc");
+  var option = document.createElement("option");
+
+  var y = document.getElementById("city");
+
+  if (y.value == "1" && flag == 0)
+  {
+    option.text = il[i];
+    x.add(option, x[i]);
+  }
+  
+}
+
+flag = 1;
+
+
+}
+</script>
+
+
+{% endblock %}

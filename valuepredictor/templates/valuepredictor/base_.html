@@ -1,0 +1,190 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Land Value Predictor</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Travelix Project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+   <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+
+
+
+<link rel="stylesheet" type="text/css" href="../static/homes_/styles/bootstrap4/bootstrap.min.css">
+<link href="../static/homes_/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../static/homes_/plugins/OwlCarousel2-2.2.1/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../static/homes_/plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
+<link rel="stylesheet" type="text/css" href="../static/homes_/plugins/OwlCarousel2-2.2.1/animate.css">
+<link rel="stylesheet" type="text/css" href="../static/homes_/styles/main_styles.css">
+<link rel="stylesheet" type="text/css" href="../static/homes_/styles/responsive.css">
+
+<style>
+	/*body { margin: 0; padding: 0; }*/
+	/*#map { position: absolute; top: 0; bottom: 0; width: 100%; }*/
+</style>
+
+
+<style>
+.listing-group {
+font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+font-weight: 600;
+position: absolute;
+top: 10px;
+right: 10px;
+z-index: 1;
+border-radius: 3px;
+max-width: 20%;
+color: #fff;
+}
+ 
+.listing-group input[type='checkbox']:first-child + label {
+border-radius: 3px 3px 0 0;
+}
+ 
+.listing-group label:last-child {
+border-radius: 0 0 3px 3px;
+border: none;
+}
+ 
+.listing-group input[type='checkbox'] {
+display: none;
+}
+ 
+.listing-group input[type='checkbox'] + label {
+background-color: #3386c0;
+display: block;
+cursor: pointer;
+padding: 10px;
+border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+ 
+.listing-group input[type='checkbox'] + label {
+background-color: #3386c0;
+text-transform: capitalize;
+}
+ 
+.listing-group input[type='checkbox'] + label:hover,
+.listing-group input[type='checkbox']:checked + label {
+background-color: #4ea0da;
+}
+ 
+.listing-group input[type='checkbox']:checked + label:before {
+content: '✔';
+margin-right: 5px;
+}
+</style>
+
+
+
+</head>
+
+
+
+
+<!-- ...........   Body      .............. -->
+
+<body>
+
+
+
+<!-- ............................. -->
+
+  <!-- Top Bar -->
+  {% include 'valuepredictor/header_.html' %}
+  
+
+<!-- ............................. -->
+
+
+<div class="super_container">
+
+{% include 'valuepredictor/home_.html' %}
+
+
+<br>
+<br>
+
+
+{% include 'valuepredictor/imap_.html' %}
+
+
+<br>
+<br>
+
+
+{% include 'valuepredictor/smap_.html' %}
+
+<br>
+<br>
+
+{% block content %} {% endblock %}
+
+
+{% include 'valuepredictor/broader_.html' %}
+
+{% include 'valuepredictor/trending_.html' %}
+{% include 'valuepredictor/contact_.html' %}
+{% include 'valuepredictor/footer_.html' %}
+<!-- map -->
+
+
+<!-- ............................................ -->
+
+<!-- ............................................ -->
+
+
+
+
+</div>
+
+
+		
+
+
+
+
+<!-- ............................ -->
+
+
+</div>
+
+
+
+
+<!-- ............................................ -->
+
+<script src="../static/homes_/js/jquery-3.2.1.min.js"></script>
+<script src="../static/homes_/styles/bootstrap4/popper.js"></script>
+<script src="../static/homes_/styles/bootstrap4/bootstrap.min.js"></script>
+<script src="../static/homes_/plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
+<script src="../static/homes_/plugins/easing/easing.js"></script>
+<script src="../static/homes_/js/custom.js"></script>
+
+
+
+
+<!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+
+
+ <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

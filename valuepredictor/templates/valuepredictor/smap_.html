@@ -1,0 +1,159 @@
+
+
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+<link
+rel="stylesheet"
+href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+type="text/css"
+/>
+
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.1/mapbox-gl.css' rel='stylesheet' />
+
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js">
+  </script>
+  <link rel="stylesheet"
+    href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.css"
+    type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+   
+
+
+
+<!-- .............................. -->
+
+
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+<!-- .................................  -->
+
+
+
+
+
+   	<div class="container">
+			<div class="row">
+				<!-- <div class="col"> -->
+					<h2 class="intro_title text-center">Choose your Desired Area</h2>
+				<!-- </div> -->
+
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <center>{{ form }}</center>
+
+        
+  <br>
+
+
+</div>
+<div class="row">
+<!-- <div id="container" style="max-width: 1000px"> -->
+	
+   <div id='map' style='margin-right: 10px; width: 1130px; height: 400px;'></div>
+   <nav style="margin-top: 40px; margin-right: 12px;" id="listing-group" class="listing-group">
+<input type="checkbox" id="scrollZoom" checked="checked" />
+<label for="scrollZoom">Scroll zoom</label>
+<input type="checkbox" id="boxZoom" checked="checked" />
+<label for="boxZoom">Box zoom</label>
+<input type="checkbox" id="dragRotate" checked="checked" />
+<label for="dragRotate">Drag rotate</label>
+<input type="checkbox" id="dragPan" checked="checked" />
+<label for="dragPan">Drag pan</label>
+<input type="checkbox" id="keyboard" checked="checked" />
+<label for="keyboard">Keyboard</label>
+<input type="checkbox" id="doubleClickZoom" checked="checked" />
+<label for="doubleClickZoom">Double click zoom</label>
+<input type="checkbox" id="touchZoomRotate" checked="checked" />
+<label for="touchZoomRotate">Touch zoom rotate</label>
+</nav>
+
+
+
+ 
+<script>
+mapboxgl.accessToken = 'pk.eyJ1Ijoic2hvYWliMzciLCJhIjoiY2s5NDR3eTNxMDJiZjNmcHB1aWcyNndkcyJ9.9pqO9IEVUncPVZ3iCnS-wg';
+var map = new mapboxgl.Map({
+container: 'map',
+// style: 'mapbox://styles/mapbox/streets-v11'
+     style: 'mapbox://styles/mapbox/streets-v10',
+     center: [73.106812, 30.677717],
+     zoom: 13
+
+});
+document
+.getElementById('listing-group')
+.addEventListener('change', function(e) {
+var handler = e.target.id;
+if (e.target.checked) {
+map[handler].enable();
+} else {
+map[handler].disable();
+}
+});
+
+var geocoder = new MapboxGeocoder({
+accessToken: mapboxgl.accessToken,
+language: 'us-EN',
+mapboxgl: mapboxgl
+});
+map.addControl(geocoder);
+
+
+
+    map.addControl(new mapboxgl.FullscreenControl({
+      container: document.querySelector('map')
+    }));
+    var nav = new mapboxgl.NavigationControl();
+    map.addControl(nav, 'top-right');
+    map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }));
+
+
+
+    map.on('mousedown', function (e) {
+
+      var a = document.getElementById('info');
+      var obj = e.lngLat.wrap();
+      a.value = JSON.stringify(obj.lng + "," + obj.lat);
+      // a.value = JSON.stringify(obj.place
+      	// );
+//   	geocodingClient.reverseGeocode({
+//   query: [-95.4431142, 33.6875431]
+// })
+//   .send()
+//   .then(response => {
+//     // GeoJSON document with geocoding matches
+//     a.value = response.body;
+//   });
+    });
+
+
+</script>
+
+</div>
+
+    
+   <center> <input class="btn-primary btn btn-large" type="submit" name="submit"></center>
+</form>
+
+  <from>
+    <center>{{ form.info.value }}
+    </center>
+  </from>
+
+</div>

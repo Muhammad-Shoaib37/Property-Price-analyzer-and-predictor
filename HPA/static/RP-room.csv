@@ -1,0 +1,40 @@
+location,p_counts,min_price,max_price,mean_price
+Adiala Road,1,8000,8000,8000.0
+Afshan Colony,1,10000,10000,10000.0
+Air Force Housing Society,1,18000,18000,18000.0
+Airport Housing Society,1,16500,16500,16500.0
+Aria Mohalla,2,10000,20000,15000.0
+Bahria Town Rawalpindi,4,6500,16000,9375.0
+Chaklala Scheme,1,15000,15000,15000.0
+Chakri Road,1,4000,4000,4000.0
+Chungi No. 22 Road,1,10000,10000,10000.0
+Committee Chowk,1,3000,3000,3000.0
+Data Ganj Bakhsh Road,1,1800,1800,1800.0
+Defence Road,2,8000,8000,8000.0
+Dhok Kala Khan,4,5000,6000,5500.0
+Dhok Kashmirian,1,8000,8000,8000.0
+Dhok Paracha,2,5000,5000,5000.0
+Dhoke Banaras Road,4,6000,8000,7000.0
+Faisal Colony,6,6500,7500,6833.333333333333
+Faizabad,1,18000,18000,18000.0
+Farooq-e-Azam Road,3,5500,7000,6500.0
+Girja Road,2,5000,5000,5000.0
+Gulraiz Housing Scheme,1,8000,8000,8000.0
+Gulshan Dadan,1,8500,8500,8500.0
+Gulzar-e-Quaid Housing Society,4,6000,7000,6250.0
+Holy Family Road,2,11000,16000,13500.0
+KRL Road,1,6000,6000,6000.0
+Khayaban-e-Tanveer,1,8000,8000,8000.0
+Kurri Road,1,7000,7000,7000.0
+Marir,1,9000,9000,9000.0
+Misryal Road,1,10000,10000,10000.0
+Morgah,1,9000,9000,9000.0
+Murree Road,1,7600,7600,7600.0
+Muslim Town,1,8000,8000,8000.0
+PWD Colony,1,4000,4000,4000.0
+Pindora,1,4500,4500,4500.0
+Saddar,1,7500,7500,7500.0
+Satellite Town,8,9000,15000,11500.0
+Shalley Valley,1,6000,6000,6000.0
+Tench Bhata,2,10000,10000,10000.0
+Westridge,2,18000,18000,18000.0

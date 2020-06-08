@@ -1,0 +1,44 @@
+{% extends 'HPA/base.html' %}
+
+
+{% block content %}
+
+
+	<h3 style="text-align: center;">Select City and Predict Property Price: </h3>
+
+{% for i, j in dis %}
+
+<div class="row">
+	<form method="post">
+
+
+<div style="text-align: center;" class="col-md-2">
+
+{% if i == "Islamabad" %}
+<a href="{% url 'isl_prediction' %}">{{i}}</a>
+{% endif %}
+
+{% if i == "Rawalpindi" %}
+<a href="{% url 'rwp_prediction' %}">{{i}}</a>
+{% endif %}
+{% if i == "Lahore" %}
+<a href="{% url 'lhr_prediction' %}">{{i}}</a>
+{% endif %}
+
+{% if i == "Faisalabad" %}
+<a href="{% url 'fsd_prediction' %}">{{i}}</a>
+{% endif %}
+
+{% if i == "Karachi" %}
+<a href="{% url 'krc_prediction' %}">{{i}}</a>
+{% endif %}
+
+</div>
+
+
+
+</form>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,44 @@
+
+
+	{% extends 'HPA/base.html' %}
+
+	{% block content %}
+
+
+<div class="row">
+	<div class="col-md-2"></div>
+	<div class="col-md-3"><h3 style="margin-top: 7px;">Select Your Desired Location: </h3></div>
+	<div class="col-md-3">
+
+		<form method="post" action="" class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
+			{% csrf_token %}
+		<div class="search_item">
+								
+								<select name="location" style="font-size: 16px; width: 400px;" name="city" id="adults_1" class="dropdown_item_select search_input">
+									
+    <option value="Islamabad">Islamabad</option>
+    <option value="Rawalpindi">Rawalpindi</option>
+    <option value="Lahore">Lahore</option>
+    <option value="Faisalabad">Faisalabad</option>
+    <option value="Karachi">Karachi</option>
+
+</select>
+
+</div>
+
+
+
+	</div>
+	<div class="col-md-3"><input style="margin-top: -18px;" type="submit" name="cs" value="Find" class="button search_button"><span></span><span></span><span></span></div>
+	</form>
+
+</div>
+<br>
+
+	<h1 style="text-align: center;">{{info_1}}</h1>
+	{% include 'HPA/PAK/pak-uportion_counts.html' %}
+<br>
+	<h1 style="text-align: center;">{{info_2}}</h1>
+	{% include 'HPA/PAK/pak-uportion.html' %}
+    
+{% endblock %}
